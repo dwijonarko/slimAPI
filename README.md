@@ -1,11 +1,12 @@
 # Create REST API using Slim Framework 3 
 
 ## Install the Application
-*Download / Clone this repo
-*composer update
-*create table using people.sql
-*config db.php for mysql setup
-*test API 
+- Download / Clone this repo
+- composer update
+- create table using people.sql
+- config db.php for mysql setup
+- test API 
+
 | Methods |   URL   |               Actions |
 |---------|:-------:|----------------------:|
 | GET     | /users  | show all users        |
