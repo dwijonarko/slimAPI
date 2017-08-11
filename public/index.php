@@ -31,6 +31,24 @@ require __DIR__ . '/../src/routes.php';
 // Register DB config
 require __DIR__. '/../src/db.php';
 
+function postUser(Request $request, Response $response) {
+	$input = $request->getParsedBody();
+	$sql = "INSERT INTO people (name,email,address,phone) VALUES (:name, :email,:address,:phone)";
+	try {
+		$db = getDB();
+		$sth = $db->prepare($sql);
+		$sth->bindParam("name", $input['name']);
+        $sth->bindParam("email", $input['email']);
+        $sth->bindParam("address", $input['address']);
+        $sth->bindParam("phone", $input['phone']);
+        $sth->execute();
+        return $response->withJson($input);
+		$db = null;
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
 function getUser(Request $request, Response $response) {
 	$id = $request->getAttribute('id');
     $sql = "SELECT * FROM people WHERE id='$id'";

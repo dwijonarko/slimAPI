@@ -12,5 +12,6 @@
  */
 $app->get('/users','getUsers');
 $app->get('/user/{id}','getUser');
+$app->post('/user','postUser');
 $app->put('/user/{id}','updateUser');
 $app->delete('/user/{id}','deleteUser');
