@@ -7,8 +7,8 @@
 - config db.php for mysql setup
 - test API 
 
-| Methods |   URL   |               Actions |
-|---------|:-------:|----------------------:|
+| Methods |    URL   |               Actions |
+|---------|----------|-----------------------|
 | GET     | v1/users  | show all users        |
 | GET     | v1/users?param1=value1&param2=value2  | show all users where param1=value1 OR param1=value2 ex: v1/users?email=sagi&name=dwi
 | GET     | v1/user/1 | show user with ID 1   |
