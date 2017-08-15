@@ -68,7 +68,26 @@ function getUser(Request $request, Response $response) {
 };
 
 function getUsers(Request $request, Response $response) {
-	$sql = "SELECT * FROM people LIMIT 10";
+	if(empty($_GET)){
+		$sql = "SELECT * FROM people";		
+	}else{
+		if (isset($_GET) && count($_GET)==1) {
+			$column =  array_keys($_GET)[0];
+			$value = $_GET[$column];
+			$sql = "SELECT * FROM people WHERE ".$column." LIKE '%".$value."%'";	
+		}else{
+			$sql = "SELECT * FROM people";
+			reset($_GET);
+			$first=key($_GET);
+			foreach ($_GET as $column => $value) {
+				if ($column===$first) {
+					$sql .=" WHERE ".$column." LIKE '%".$value."%'";
+				}else{
+					$sql .=" OR ".$column." LIKE '%".$value."%'";
+				}
+			}
+		}
+	}
 	try {
 		$db = getDB();
 		$stmt = $db->query($sql); 

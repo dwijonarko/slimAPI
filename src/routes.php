@@ -10,8 +10,8 @@
     return $this->renderer->render($response, 'index.phtml', $args);
 });
  */
-$app->get('/users','getUsers');
-$app->get('/user/{id}','getUser');
-$app->post('/user','postUser');
-$app->put('/user/{id}','updateUser');
-$app->delete('/user/{id}','deleteUser');
+$app->get('/v1/users','getUsers');
+$app->get('/v1/user/{id}','getUser');
+$app->post('/v1/user','postUser');
+$app->put('/v1/user/{id}','updateUser');
+$app->delete('/v1/user/{id}','deleteUser');
