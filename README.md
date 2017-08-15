@@ -9,8 +9,9 @@
 
 | Methods |   URL   |               Actions |
 |---------|:-------:|----------------------:|
-| GET     | /users  | show all users        |
-| GET     | /user/1 | show user with ID 1   |
-| POST    | /user   | add new user          |
-| PUT     | /user/1 | update user with ID 1 |
-| DELETE  | /user/1 | delete user with ID 1 |
+| GET     | v1/users  | show all users        |
+| GET     | v1/users?param1=value1&param2=value2  | show all users where param1=value1 OR param1=value2 ex: v1/users?email=sagi&name=dwi
+| GET     | v1/user/1 | show user with ID 1   |
+| POST    | v1/user   | add new user          |
+| PUT     | v1/user/1 | update user with ID 1 |
+| DELETE  | v1/user/1 | delete user with ID 1 |
